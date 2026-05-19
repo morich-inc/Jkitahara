@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北原潤 様｜morich キャリアご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E60012;
+    --red-light: #fff0f0;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-600: #2563eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f5; color: var(--gray-900); line-height: 1.75; }
+  header { background: #fff; border-bottom: 3px solid var(--red); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  header img { height: 38px; }
+  header .htxt p:first-child { font-size: 12px; color: var(--gray-500); }
+  header .htxt p:last-child { font-size: 17px; font-weight: 900; }
+  .nav-bar { background: var(--gray-900); padding: 0 12px; overflow-x: auto; white-space: nowrap; }
+  .nav-bar a { display: inline-block; padding: 13px 18px; color: #ccc; text-decoration: none; font-size: 12px; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-bar a:hover { color: #fff; border-bottom-color: var(--red); }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 14px 64px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 40px; overflow: hidden; border-top: 5px solid var(--red); }
+  .card-inner { padding: 28px 28px 36px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--red-light); }
+  .badge-blue { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+  .co-name { font-size: clamp(22px, 5vw, 34px); font-weight: 900; line-height: 1.2; margin-bottom: 5px; }
+  .co-url { font-size: 12px; margin-bottom: 22px; }
+  .co-url a { color: var(--blue-600); text-decoration: none; }
+  .co-url a:hover { text-decoration: underline; }
+  .overview { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .overview h3 { font-size: 10px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .overview tr { border-bottom: 1px solid var(--blue-100); }
+  .overview tr:last-child { border-bottom: none; }
+  .overview th { text-align: left; padding: 6px 14px 6px 0; color: var(--gray-600); font-weight: 700; width: 100px; vertical-align: top; white-space: nowrap; }
+  .overview td { padding: 6px 0; color: var(--gray-700); }
+  .highlight { background: var(--red-light); border: 2px solid var(--red); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .highlight h3 { font-size: 13px; font-weight: 900; color: var(--red); margin-bottom: 8px; }
+  .highlight p, .highlight li { font-size: 13px; color: #7a0000; margin-bottom: 4px; }
+  .highlight ul { padding-left: 16px; }
+  .accordion { margin-bottom: 16px; }
+  .acc-header { display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; padding: 12px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; user-select: none; transition: background 0.15s; }
+  .acc-header:hover { background: var(--gray-100); }
+  .acc-header .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--red); border-left: 3px solid var(--red); padding-left: 8px; margin-bottom: 5px; display: block; }
+  .acc-preview { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .acc-header-left { flex: 1; }
+  .acc-icon { width: 28px; height: 28px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gray-200); font-size: 13px; transition: transform 0.25s, background 0.2s; }
+  .acc-header.open .acc-icon { transform: rotate(180deg); background: var(--red); color: #fff; }
+  .acc-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .acc-body { display: none; padding: 20px 18px; border: 1px solid var(--gray-200); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 10px; }
+  .acc-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .acc-body li { margin-bottom: 6px; }
+  .job-wrap { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .job-header { background: var(--gray-900); color: #fff; padding: 14px 18px; display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; user-select: none; }
+  .job-title-text { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
+  .job-preview { font-size: 11px; color: #aaa; line-height: 1.5; }
+  .job-icon { width: 26px; height: 26px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 12px; transition: transform 0.25s; }
+  .job-header.open .job-icon { transform: rotate(180deg); }
+  .job-body { display: none; padding: 20px 18px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .job-body.open { display: block; }
+  .job-body p { margin-bottom: 10px; }
+  .job-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .job-body li { margin-bottom: 6px; }
+  .job-section { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 6px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 8px; }
+  .tag-must { background: var(--red); color: #fff; }
+  .tag-want { background: var(--gray-600); color: #fff; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; border-left: 3px solid var(--red); padding-left: 8px; margin: 22px 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lbtn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 6px; background: var(--gray-900); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .lbtn:hover { background: var(--red); }
+  .lbtn-out { background: transparent; color: var(--gray-900); border: 2px solid var(--gray-200); }
+  .lbtn-out:hover { background: var(--gray-900); color: #fff; border-color: var(--gray-900); }
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: var(--gray-500); border-top: 1px solid var(--gray-200); background: #fff; }
+  @media(max-width:600px){ .card-inner{ padding: 18px 14px 24px; } .overview th { width: 80px; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="morich_logo.jpg" alt="morich">
+  <div class="htxt">
+    <p>morich キャリアご提案資料</p>
+    <p>北原潤 様</p>
+  </div>
+</header>
+<nav class="nav-bar">
+  <a href="#k1">1. アスエネ株式会社</a>
+  <a href="#k2">2. ハコベル株式会社</a>
+  <a href="#k3">3. 株式会社Hacobu</a>
+  <a href="#k4">4. 霞ヶ関キャピタル株式会社</a>
+  <a href="#k5">5. 株式会社NEXT ONE（ネクストワン）</a>
+  <a href="#k6">6. 株式会社ソーシャルインテリア（旧：subsclife/サブスクライフ）</a>
+  <a href="#k7">7. リビン・テクノロジーズ株式会社</a>
+  <a href="#k8">8. アスエネ株式会社</a>
+  <a href="#k9">9. ハコベル株式会社</a>
+  <a href="#k10">10. 株式会社Hacobu</a>
+  <a href="#k11">11. 霞ヶ関キャピタル株式会社</a>
+  <a href="#k12">12. 株式会社NEXT ONE（ネクストワン）</a>
+  <a href="#k13">13. 株式会社ソーシャルインテリア（旧：subsclife/サブスクライフ）</a>
+  <a href="#k14">14. リビン・テクノロジーズ株式会社</a>
+</nav>
+<main>
+
+<div class="card" id="k1"><div class="card-inner">
+  <div class="badges"><span class="badge">新規事業責任者候補</span><span class="badge badge-blue">IPO準備中</span></div>
+  <div class="co-name">アスエネ株式会社</div>
+  <div class="co-url"><a href="https://corp.asuene.com/company" target="_blank">https://corp.asuene.com/company</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒105-0001 東京都港区虎ノ門1-10-5 KDX虎ノ門一丁目ビル WeWork 4階</td></tr><tr><th>従業員数</th><td>正社員280名、業務委託を含め400名超</td></tr><tr><th>上場区分</th><td>未上場（IPO準備中）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>圧倒的な成長資金と財務基盤：累計資金調達額は115億円に上り、米国展開を加速させています。スタートアップながらメガバンク（SMBC）のプロダクトを事業承継するなど、異例かつ規模の大きなM&Aも成功させています。</li><li>グローバルな事業展開：現在、日本を含めて6カ国（東京、シンガポール、ロサンゼルス、ロンドン、バンコク、セブ）に現地拠点を持ち、事業を拡大しています。</li><li>市場No.1の実績と優位性：主力サービス「ASUENE」は3年連続導入社数No.1、「ASUENE SUPPLY CHAIN（旧ASUENE ESG）」も2年連続No.1を獲得しており、業界内での地位を確立しています。</li><li>ハイクラス人材が集う組織：正社員280名、業務委託を含め400名超の組織体制です。現在、事業部やコーポレート部門、CEO直下の新規事業などでマネージャー以上のハイクラス人材を積極採用しており、優秀なメンバーと切磋琢磨できる環境です。</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「次世代によりよい世界を」をミッションに2019年に創業した、気候変動問題解決に取り組むクライメートテック企業です。CO2排出量見える化・削減・報告クラウドサービス「ASUENE」、サプライチェーンマネジメントクラウドサービス「ASUENE SUPPLY CHAIN」、GX・ESG人材特化型転職プラットフォーム「ASUENE CAREER」などを提供しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「次世代によりよい世界を」をミッションに2019年に創業した、気候変動問題解決に取り組むクライメートテック企業です。<br>CO2排出量見える化・削減・報告クラウドサービス「ASUENE」、サプライチェーンマネジメントクラウドサービス「ASUENE SUPPLY CHAIN」、GX・ESG人材特化型転職プラットフォーム「ASUENE CAREER」、非財務データの第三者保証事業「ASUENE VERITAS」、カーボンクレジット取引所「Carbon EX」など脱炭素・ESG領域のマルチプロダクトを提供し、企業のサステナビリティ経営をワンストップで支援しています。</p><p>実績は圧倒的で、「ASUENE」は導入社数3年連続No.1、ESG評価クラウドも2年連続No.1を獲得しており、累計資金調達額は115億円に達しています。また、三井住友銀行の事業を買収・統合するなどこれまでに6社のM&Aを実施し、成長戦略の中核としています。現在は日本・米国・シンガポール・ロンドンなど世界6ヶ国に拠点を持ち、グローバル展開を加速させています。<br>米誌の「2025 World's Top GreenTech Companies」に、日本のCO2排出量見える化クラウド企業で唯一選出されるなど、世界的な評価も高い成長企業です。</p><p><strong>代表取締役CEO　西和田 浩平 氏</strong><br>慶應義塾大学卒業、三井物産にて日本・欧州・中南米の再生可能エネルギーの新規事業投資・M&Aを担当。ブラジル海外赴任中に分散型電源企業に出向、海外のM&A・PMI・事業投資・新規事業などを経験。<br>Forbes Japan Rising Star Award受賞、Forbes Japan 100選出など多数のアワードを受賞。<br>2025年12月に初の著書「『世界で勝てるGX』脱炭素資本主義が動かす、再エネ×AI主導の21世紀の産業革命」を出版</p><p>IPOできる体制は整えていますが、大型IPOを狙い市況を見ながら上場タイミングを見計らっています。<br>規制・ルールメイクが厳しい欧州・米国に進出しいち早く反映していることも、優位性の一つです。<br>時価総額一兆円に向かって事業急拡大中の同社、一度お話を聞いてみませんか？</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 新規事業責任者候補</div>
+          <div class="job-preview">経営陣とともに、0→1立ち上げから営業/事業開発のリード、PMFまでのスケールなどを一手に担当</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【仕事内容】</strong><br>アスエネでは、複数の新規事業開発に取り組んでいます。<br>本ポジションは、新規事業開発の責任者候補として経営戦略の実現を支える重要なポジションです。</p><p>経営陣とともに、0→1立ち上げから営業/事業開発のリード、PMFまでのスケールなどを一手に担っていただきます。<br>スピード感のある経営判断をダイナミックに体感しながら、この先の未来の事業を創ることができます。</p><p>※新規事業の具体的な内容は開示していないため、面談や面接の中でお話しできればと思います。</p><p><strong>【事業内容】</strong><br>「ASUENE」：CO2排出量見える化・削減・報告クラウドサービス<br>「ASUENE SUPPLY CHAIN」：サプライチェーンマネジメントプラットフォーム<br>「ASUENE CAREER」：GX・ESG人材特化型転職プラットフォーム<br>「Carbon EX」：カーボンクレジット・排出権取引所<br>「ASUENE VERITAS」：脱炭素・非財務情報の第三者検証・保証、アドバイザリーサービス</p><p><strong>【必須スキル】</strong></p><ul><li><span class='tag tag-must'>MUST</span> 事業戦略の構築経験</li><li><span class='tag tag-must'>MUST</span> 要件定義やプロジェクト推進の経験</li><li><span class='tag tag-must'>MUST</span> 0→1フェーズの事業またはプロダクト立ち上げ経験</li><li><span class='tag tag-must'>MUST</span> 経験として、下記のいずれかを満たす<br>・総合商社や事業会社における経営企画/事業開発等、企画部門での実務経験（目安：5年以上）<br>・戦略/経営コンサルティングファーム/投資銀行における勤務経験（目安：5年以上）</li></ul><p><strong>【歓迎スキル】</strong></p><ul><li><span class='tag tag-want'>WANT</span> ビジネスレベルの英語力を持する</li></ul><p><strong>【求める人物像】</strong></p><ul><li>自律的に行動ができ、貪欲に新しい知識や事柄を吸収し、アウトプットできる方</li><li>目標達成に向けて強くコミットしてきた経験がある方</li><li>ミッション&quot;次世代によりよい世界を&quot;の実現に本気で一緒に取り組んでくださる方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">✅ 副業条件によって可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.asuene.com/company" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k2"><div class="card-inner">
+  <div class="badges"><span class="badge">次世代経営幹部候補</span><span class="badge badge-blue">IPO準備中</span></div>
+  <div class="co-name">ハコベル株式会社</div>
+  <div class="co-url"><a href="https://corp.hacobell.com/" target="_blank">https://corp.hacobell.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>104-0032 東京都中央区八丁堀2-14-1　住友不動産八重洲通ビル1・3F</td></tr><tr><th>設立</th><td>2022年8月（ラクスルとセイノーHDのJVとして独立）</td></tr><tr><th>上場区分</th><td>未上場（IPO準備中）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    ★IPO準備中（上場スケジュールは口頭でお伝えいたします）<br>★社長リレーション<br>★過去複数名入社実績アリ<br><br>セイノーホールディングス・ラクスルとのJVです。セイノーホールディングス田口社長とも、弊社代表・森本が懇意にさせていただいております。<br><br>物流のプラットフォーマーに成るべく、小売向け物流マッチングを中心に展開しています。強みは法人物流トップであるセイノーホールディングスとの提携で培った法人間物流。取引先は大手消費財メーカーや商社が中心で、ドライバーの登録台数5万台、シェア6％を獲得されています。また、収益性を高めるためにSaaS事業として輸配送マッチングプラットフォーム、輸配送管理システムを開発し、既に数十社に導入が進んでいます。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「物流の『次』を発明する」というMissionのもと、2015年に荷主とドライバーをつなぐマッチングサービスとして事業をスタート。2022年8月にBtoB物流No.1のセイノーHDとラクスルのJVとして独立し、数年後のIPOを見据えた成長フェーズに突入しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>ハコベルは「物流の『次』を発明する」というMissionのもと、2015年に荷主とドライバーをつなぐマッチングサービスとして事業をスタートしました。ドライバーの非稼働時間を有効活用することで、低価格かつ「誰でも・早く・簡単に」配送できる仕組みを実現し、物流業界の課題解決に挑んできた企業です。</p><p>2019年からは、一般貨物向けのマッチングサービスに加え、配車管理システムの提供を開始。さらに近年はM&Aを通じて事業基盤を大きく拡張しています。<br>・2024年9月：モノフル社の「トラック簿」事業を承継（初のM&A）<br>・2025年12月：Azoop社の「トラッカーズマネージャー」事業を吸収分割により承継<br>車両・運行・労務管理、収益可視化までをカバーする機能を統合し、既存事業とのシナジーを最大化しています。</p><p>ハコベルはもともとラクスル株式会社の一事業として成長してきましたが、2022年8月にBtoB物流No.1のセイノーHDとラクスルのJVとして独立し、現在のハコベル株式会社が誕生しました。<br>その後も、2023年10月には 山九株式会社／福山通運株式会社／日本ロジテム株式会社を引受先とする第三者割当増資を実施。<br>日本を代表する物流企業が株主として名を連ね、業界全体を巻き込んだ変革に本気で取り組む体制を築いています。</p><p>背景にあるのは、ラクスルのVision「仕組みを変えれば、世界はもっと良くなる」、セイノーHDのMission「日本の物流ネットワークを効率化する」、この2つの思想を融合させ、数年後のIPOを見据えた成長フェーズに突入しています。</p><p>現在ハコベルでは、狭間社長の&quot;ビジネスパートナー&quot;として経営を共に推進するNo.2ポジションの採用を強化中。<br>狭間社長のビジネスパートナー的な位置づけで是非経営を共に推進いただける方を求めたいとの切実なメッセージを頂いています！<br>物流×テクノロジーの最前線で、日本の社会インフラを変えていく。その中核を担う、ぜひ注目していただきたい企業です。</p><p><strong>代表取締役社長CEO　狭間 健志氏</strong><br>1985年生まれ。東京大学大学院農学生命科学研究科修士課程修了後、ベイン・アンド・カンパニーの東京オフィスに入社。多岐にわたる業界の日系・外資系クライアントを担当。2017年8月、ラクスル株式会社へ入社。執行役員ハコベル事業本部長として5年間職務に携わったのち、分社化に伴い2022年8月、現職に就任。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 【オープンポジション】次世代経営幹部候補</div>
+          <div class="job-preview">IPOを見据えて新しい会社の経営チームとして、14兆円を超える物流業界の変革をリード</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>◆Mission</strong><br>ハコベルは「物流の「次」を発明する」というMissionの下、2015年に荷主とドライバーをつなぐマッチングサービスを開始しました。<br>ドライバーの非稼働時間を活用することで、低価格かつ、誰でも早く簡単に配送ができる仕組みを実現し、2019年からは一般貨物を対象としたマッチングサービスと、業務の効率化を目的とした配車管理システムの提供も開始しています。</p><p>2022年7月まではラクスル株式会社の1つの事業でしたが、2022年8月よりBtoB物流No.1のセイノーHDとラクスルのJVとして「ハコベル株式会社」を設立し、独立することになりました。 「仕組みを変えれば世界はもっと良くなる」のラクスルのVision、「日本の物流ネットワークを効率化する」というセイノーHDのMissionのもと、 数年後のIPOを見据えて新しい会社の経営チームを募集しています。</p><p>14兆円を超える物流業界において、セイノーHDの有するブランド・全国の営業ネットワークと、ハコベルというプロダクトを融合し、日本の物流を変革していきます。</p><p><strong>◆職務内容</strong><br>オープンポジションでの募集になります。<br>面接時に希望を伺ったうえで、配属部署を決定いたします。</p><p>ハコベルは荷主とドライバーをつなぐマッチングプラットフォーム事業と物流企業の業務効率化を担うSaaS事業を運営しております。<br>事業責任者、営業、事業企画（Bizdev）、オペレーションマネジメント、PdMなど様々なキャリアが広がっています。<br>14兆円もの市場規模を誇る物流市場において、「物流の「次」を発明する」というmissionに共感いただける方をお待ちしております。</p><p><strong>必須（MUST）</strong></p><ul><li><span class='tag tag-must'>MUST</span> 当社ミッションへの共感</li><li><span class='tag tag-must'>MUST</span> 新規事業推進のための実行力と交渉力</li><li><span class='tag tag-must'>MUST</span> やり遂げる執着心</li><li><span class='tag tag-must'>MUST</span> 社内外の人間と円滑に業務を進められるコミュケーション能力</li><li><span class='tag tag-must'>MUST</span> 社内外の人間からフィードバックを集められる素直な心</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.hacobell.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k3"><div class="card-inner">
+  <div class="badges"><span class="badge">次世代ビジネスリーダー</span><span class="badge badge-blue">IPO準備中</span></div>
+  <div class="co-name">株式会社Hacobu</div>
+  <div class="co-url"><a href="https://hacobu.jp" target="_blank">https://hacobu.jp</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒108-0014 東京都港区芝5丁目29番11号 G-BASE田町4階</td></tr><tr><th>従業員数</th><td>150名（2024年6月時点、2025年5月末には200名体制を目指す）</td></tr><tr><th>平均年齢</th><td>36.5歳</td></tr><tr><th>上場区分</th><td>未上場（IPO準備中）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    ★IPO準備中<br><br>平均年齢36.5歳、社長も4人の子供がおり、子育てメンバーの多い大人ベンチャーです。<br>物流DXスタートアップは複数ございますが、同社はマルチプロダクト戦略で複数プロダクトを有し、シェアを獲得している点が強みです。<br>マネタイズは荷主・発注者向けとなるため、エンタープライズ向けセールスに舵を切って拡販を進めておられます。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「運ぶを最適化する」をミッションとする、物流テックスタートアップです。三井不動産、大和ハウス、アスクル、日本郵政、ソニー、日野自動車といったビックネームからも大型の資金調達をもって応援され、ネットワークを生かし業界に新しいルールをつくり始めています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「運ぶを最適化する」をミッションとする、物流テックスタートアップです。三井不動産、大和ハウス、アスクル、日本郵政、ソニー、日野自動車といったビックネームからも大型の資金調達をもって応援され、ネットワークを生かし業界に新しいルールをつくり始めています。</p><p>物流業界は、紙・FAX・電話中心のアナログ業務と多重下請け構造が原因で、非効率なオペレーションと長時間労働が常態化しているという大きな課題があります。<br>日本の物流市場は約25兆円ある巨大市場であり、その中でHacobuがターゲットとする「企業間物流」は約13兆円の市場規模を占めます。企業間物流は製品が自宅や流通の店舗に届く前の物流を指し、メーカー、卸、小売、物流企業、運送会社などのプレイヤーが複雑に絡み合う構造の業界にメスを入れています。</p><p>トラック予約受付サービス「MOVO Berth」、動態管理サービス「MOVO Fleet」、配送案件管理サービス「MOVO Vista」などのクラウドサービスと、コンサルティングサービス「Hacobu Strategy」を展開し、企業間物流の最適化を支援しています。<br>現在、アサヒ飲料や花王、ビックカメラなど主に日用品や食品関連企業、物流事業者と契約し、MOVOを利用する事業所は計約1万5千カ所、累計利用ドライバー数は54万人にのぼります。これは日本のトラックドライバー数の約2/3に相当し、トラック予約受付サービスではNo.１のシェアを誇っています。</p><p>これまでの累計資金調達額は約43億円で、さらなるMOVOネットワークの拡大を進めるとともに、データテクノロジーへの投資を加速しています。<br>内閣府から発表された物流改善に向けた政策パッケージを受け、更なる事業の急拡大フェーズを迎えており、昨年度は過去最高売上を記録しました。2024年6月には150名となり2025年5月末には200名体制を目指しています。</p><p>組織はとてもフラットで、皆様下の名前やあだなで呼び合うとのこと・・<br>hacobu Valueへの共感を大切に考えられているので、ご応募されるかの判断としてご一読いただけますと幸いです。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 【次世代ビジネスリーダー】事業企画/事業開発ー経営層直下ポジションー</div>
+          <div class="job-preview">成長過程にあるスタートアップ企業の経営層直下のポジションで、ビジネス拡大に向けた戦略立案から施策プランニング、実施までを担当</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【募集背景】</strong><br>当社は物流の課題をワンストップで解決するSaaSを提供しています。<br>主力となるトラック予約受付サービスを始めマルチプロダクトを展開しており、より各プロダクト及び事業全体の成長を加速させるべく、未来の中核人材を積極的に募集しています。</p><p><strong>【仕事内容】</strong><br>成長過程にあるスタートアップ企業の経営層直下のポジションで、ビジネス拡大に向けた戦略立案から施策プランニング、実施までを担っていただきます。物流という、あらゆるビジネスに欠かせないインフラである領域において、ゲームチェンジャーとしてデジタルトランスフォーメーションの流れをけん引する役割は、他では味わえない醍醐味があります。</p><p>面接の中で、ご経験やご志向に応じてふさわしい部署、役割を検討させていただき、ご経験によってはマネージャー候補としてジョインいただく可能性もございます。</p><p><strong>＜具体的なミッション可能性＞</strong></p><ul><li>プロダクト軸での事業拡大に向けたグロース戦略立案、実施</li><li>事業成長を実現する戦略・戦術の立案と実行（PR・マーケティング・営業を通貫する施策の策定）</li><li>営業、カスタマーサクセスにおけるKPI設計とモニタリング</li><li>株主との事業シナジー実現のための折衝・契約実務、パートナー企業や代理店チャネル開拓</li></ul><p><strong>必須スキル</strong></p><p>◆下記いずれかのご経験をお持ちの方</p><ul><li><span class='tag tag-must'>MUST</span> コンサルティング経験３年以上</li><li><span class='tag tag-must'>MUST</span> 事業会社での事業企画、事業開発、経営企画、等の経験３年以上</li><li><span class='tag tag-must'>MUST</span> 事業責任者として事業のグロースに関わったご経験</li><li><span class='tag tag-must'>MUST</span> PdM／PMMとしてプロダクトのグロースに関わったご経験</li><li><span class='tag tag-must'>MUST</span> もしくは上記職務内容に親和性の高い業務に携わったご経験</li></ul><p><strong>歓迎スキル</strong></p><ul><li><span class='tag tag-want'>WANT</span> IT/SaaS業界での経験</li><li><span class='tag tag-want'>WANT</span> 物流業界の知識</li><li><span class='tag tag-want'>WANT</span> 英語力</li></ul><p><strong>求める人物像</strong></p><ul><li>社会課題解決への意欲がある方</li><li>ベンチャーならではの変化やスピードを楽しむことができる方</li><li>自分のやり方に固執しない（Unlearnできる）方</li><li>チームワークを大切にする方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://hacobu.jp" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k4"><div class="card-inner">
+  <div class="badges"><span class="badge">事業戦略部_経営企画/M&A</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">霞ヶ関キャピタル株式会社</div>
+  <div class="co-url"><a href="https://kasumigaseki.co.jp/" target="_blank">https://kasumigaseki.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒100-0013 東京都千代田区霞が関3丁目2番1号 霞が関コモンゲート 西館 28階</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>役員リレーション</li><li>過去入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">人口減少、観光需要の変化、物流の人手不足、医療・介護の地域格差、海外市場の成長といった社会課題を起点に事業を設計する、不動産×金融領域の成長デベロッパーです。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>人口減少、観光需要の変化、物流の人手不足、医療・介護の地域格差、海外市場の成長といった社会課題を起点に事業を設計する、不動産×金融領域の成長デベロッパーです。<br>ホテル・物流・ヘルスケア・海外の4領域において、用地の企画・開発から、運用、ファンド化（AM）までを自社で一貫して手がける独自モデルを確立しています。</p><p>成長スピードは上場企業の中でも際立っており、2025年8月期には中期経営計画を1年前倒しで達成。<br>さらにホテル特化型REITを上場し、主要事業はすべて「開発」から「運用」フェーズへと移行しました。<br>これにより、開発益に加え、PJM報酬・成功報酬・AM報酬を組み合わせた複層的かつ安定的な収益構造が完成しています。</p><p>現在は、日本で磨き上げた事業モデルをベースに、ドバイおよびASEANを中心とした海外開発事業を本格拡大中。<br>単なる投資に留まらず、自社主導の開発型ビジネスとして海外市場に展開している点も特徴です。<br>次の経営目標は、2029年に当期純利益500億円の達成。事業ポートフォリオの拡大に伴い、経営戦略・事業推進・管理機能の強化が進められています。</p><p><strong>同社の強み</strong></p><ul><li>金融視点でアセットを組成し、不動産・建設領域で開発から運用まで一気通貫の「開発会社」機能</li><li>土地仕入～企画～開発ファンドへの短期売却まで回す独自のアセットライトモデル（半年以内目途）</li><li>全国キャラバン（情報収集チーム派遣）による希少案件の早期獲得と情報流入の量・スピード</li><li>金融（ファンド出身者）と不動産のプロフェッショナルが融合した体制で、物件からファンド構成まで内製化</li><li>リファラル採用比率が高く（約4割）、若手抜擢と報酬設計により優秀人材が集積</li><li>大手ディベロッパー、スーパーゼネコン、AM会社、金融機関出身者が多数在籍（西武、住友、森ビル、星野リゾート、JLL、GLP、清水建設、鹿島建設、大林組、国内メガバンク、地銀、モルガン・スタンレー、クレディ・スイス等）</li></ul><p><strong>海外展開の現状と方針</strong></p><ul><li>米国：当面最優先フォーカス。初期はホテル、次に分譲レジデンスをターゲット。長期保有ではなく「売却型」で進める方針。州ごとの規制差、金融慣行、投資家・ファンド連携を視野にネットワーク拡張。</li><li>ドバイ：従来はレジデンスの買付・リノベ・売却（区分分譲中心）。昨年から「土地取得→レジデンス開発」へと日本同様に土地からの開発へシフト。ただし現在は商況に不透明感があり、方針は維持しつつ状況を見極め中。</li><li>マレーシア：物流倉庫を既に保有・展開。今後は拡張予定。基本スタンスはファンドへの売却型で、自社長期保有には偏らない。</li><li>東南アジアと空港関連アセットの拡大意欲も示す一方、社内に海外ノウハウ人材が不足。</li></ul></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 事業戦略部_経営企画/M&A</div>
+          <div class="job-preview">物流開発事業における経営企画・M&A業務全般</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【業務内容】</strong><br>当社の物流開発事業において、以下の業務をお任せします。</p><p><strong>■経営企画・中期計画の策定</strong><br>・中期経営計画（3～5年）の立案<br>・市場動向、競合調査をもとにした成長シナリオ作成<br>・事業ポートフォリオの見直し</p><p><strong>■予算策定・管理</strong><br>・物流部門の年間予算の作成<br>・月次、四半期での予算と実績の差異分析</p><p><strong>■事業戦略・施策の企画と実行支援</strong><br>・新規事業やM&Aの企画とデューデリジェンス支援</p><p><strong>【やりがい・魅力】</strong><br><strong>＜市場創造の最前線でキャリアを築く＞</strong><br>2020年に立ち上がった物流本部では5年で冷凍冷蔵倉庫のデベロッパーとして確固たるポジションを築いています。今後5年では、冷凍冷蔵倉庫デベロッパーとして蓄積したノウハウを活かしながら、海外展開を検討しています。<br>また、国内においては、デベロッパーとしての領域を超え、関連業界との連携・関係強化を見据えたスケールの大きな事業構想が進行中です。</p><p><strong>＜発想を形にできる柔軟な組織風土＞</strong><br>「やってみたい」という気持ちが尊重され、自らのアイデアを発信・提案できる文化があります。兼務しているメンバーも多く、挑戦意欲さえあれば主務以外の業務にも積極的に関わることができます。</p><p><strong>＜新規事業にチャレンジできる土壌＞</strong><br>既存の枠にとらわれない事業開発にも積極的な当社。新たなアセットやスキームの提案が通れば、未知の領域にも果敢に投資できる体制があります。<br>「自分発信」で事業を動かす経験を積みたい方には、非常にエキサイティングな環境です。</p><p><strong>【組織】</strong><br>事業戦略部（10名）<br>部長2名 - 副部長1名 - メンバー7名</p><p><strong>【応募条件】</strong><br><span class='tag tag-must'>MUST</span><br>・M&A関連業務の経験3年以上（事業会社／金融機関／コンサル出身歓迎）<br>・経営企画の視点とM&A実務の両輪で動ける方<br>・不動産、物流業界の知識不問（未経験者多数在籍）<br>・PL／BSが「読める、作れる」程度の数字感覚</p><p><strong>【求める人物像】</strong><br>・真面目で素直、人に優しく、チームで信頼される方<br>・自ら課題を拾い、率先して動ける方<br>・PJ進行中に問題点を見つけて発言・提案できる主体性</p><p>当社は「その課題を、価値へ。」という企業理念のもと、失敗を恐れず、常に新しい挑戦を続けていくことを大切にしています。<br>採用メッセージは「変化を起こす側へ、回れ。」<br>変化を恐れず、ルールや固定観念に固執せず、柔軟性と行動力を持って進化し続ける人材を求めています。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://kasumigaseki.co.jp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://kasumigaseki.co.jp/ir/" target="_blank">📊 IR情報</a></div>
+</div></div>
+
+<div class="card" id="k5"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社NEXT ONE（ネクストワン）</div>
+  <div class="co-url"><a href="https://nx1.co.jp/" target="_blank">https://nx1.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒150-0002 東京都渋谷区渋谷3-3-5 NBF渋谷イースト3F</td></tr><tr><th>設立</th><td>2007年6月</td></tr><tr><th>上場区分</th><td>未上場（N-1フェーズ）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2007年6月設立。時代の変化とともに多様化する社会課題に対応し、新たな事業を創造し続ける「事業創出企業」。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2007年6月設立。<br>時代の変化とともに多様化する社会課題に対応し、新たな事業を創造し続ける「事業創出企業」。<br>代表取締役社長・斉藤徹氏が24歳で創業し、2027年の上場予定（N-1フェーズ）にあります。</p><p>創業当初は光ファイバー回線代理店事業からスタートし2019年、自社サービスとして「電力サービス」を立ち上げ、ストック型ビジネスへ転換。<br>現在は約8万ユーザーが利用し、売上100億円規模／営業利益十数億円を達成しています。</p><p>2024年4月には、代表自身が強い想いを持つ「障害者雇用支援ビジネス」を新規事業として始動。<br>単なる雇用ではなく、障がいを持つ方々が&quot;成長を実感できる仕事&quot;を提供することを目的としています。<br>新百合ヶ丘に設立した1,000坪の植物工場では、イチゴ・メロン・コチョウランなど高付加価値作物を栽培。<br>障がい特性に応じた業務を設計し、最低賃金を上回る報酬水準を実現する仕組みを構築中です。</p><p>同社は利益追求と社会貢献を両立する企業として、仕組み化・効率化・DX・AI化を強みとし、<br>少数精鋭で高い生産性を実現しています。2030年に向けて営業利益120億円規模を目標に事業拡大を推進中です。</p><p><strong>事業の特徴・差別化</strong></p><p><strong>【電力事業】</strong><br>・若年層（20代中心）に選ばれる電力サービスを展開。<br>・料金は地域電力よりやや高いが、サポート品質（電話即応／土日対応）が高く評価。<br>・今後はNetflix・家電など付帯サービスのバンドルでLTV向上を狙う。</p><p><strong>【障害者雇用支援事業】</strong><br>・企業が雇用した障がい者がNEXT ONE運営の農園で就業。<br>・法定雇用率引き上げにより需要が拡大。スピードと生産性で高評価を獲得。</p><p><strong>代表取締役社長　斉藤 徹 氏</strong><br>1982年10月千葉県生まれ。グロービス経営大学院経営学研究科修了（MBA）。<br>通信関連サービス会社で最年少支店長に昇格し、札幌支店の立ち上げで1年以内に業績を急拡大。<br>「関わった人の人生を変えられる会社をつくりたい」との想いから2006年に独立。<br>2007年、株式会社NEXT ONEを設立。<br>論理的アプローチと仕組み化・効率化を通じ、社会課題を解決する&quot;社会貢献型ビジネス&quot;を展開中。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション</div>
+          <div class="job-preview">ご経験や適性に応じて最適なポジションを提案</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案させていただきます。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">❌ 副業不可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://nx1.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k6"><div class="card-inner">
+  <div class="badges"><span class="badge">新規事業（業界向けDX）：事業責任者候補</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社ソーシャルインテリア（旧：subsclife/サブスクライフ）</div>
+  <div class="co-url"><a href="https://corp.socialinterior.com/" target="_blank">https://corp.socialinterior.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒107-0062 東京都港区南青山2-5-17 POLA青山ビルディング 9F</td></tr><tr><th>設立</th><td>2016年</td></tr><tr><th>上場区分</th><td>未上場（N-1,N-2フェーズ）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備フェーズ：N-1期</li><li>社長リレーション</li><li>過去複数名入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2016年「家具業界の革命」を志し株式会社subsclifeとして創業。2018年3月に日本で初めて家具のサブスクリプションサービスをローンチ。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2016年「家具業界の革命」を志し株式会社subsclifeとして創業。<br>2018年3月に日本で初めて家具のサブスクリプションサービスをローンチ。</p><p>「インテリアの世界を変える。インテリアで世界を変える。」をミッションに掲げ、「オンライン販売事業」「オフィス構築支援事業」「INTERIOR BASE事業」の3事業を展開しています。&quot;家具のサブスク&quot;という単一モデルから脱却し、現在は INTERIOR BASE事業を成長エンジンとして、事業ポートフォリオの進化を進めています。<br>アナログ業務が多く残るインテリア業界において、生産性向上とイノベーションの実現を加速させ、業界全体の構造変革と持続的な成長に寄与するサービス展開を推進していきます。</p><p>現在は、近年のIPOを見据え、予実達成を前提にいつでも上場可能な体制を整えた&quot;最終準備フェーズ&quot;に入っています。</p><p><strong>事業紹介</strong></p><ul><li><strong>オンライン販売事業</strong><br>家具・家電のセレクト型オンラインストア「サブスクライフ」(2018年3月開始)は、新品・ヴィンテージ品・中古品・アウトレット品からお気に入りの商品を探せるサービスです。支払い方法をサブスクにすることで、月額で必要な時に必要な分だけ、必要なモノを所有せずに利用することが可能です。</li><li><strong>オフィス構築支援事業</strong><br>法人向けの「ソーシャルインテリア オフィス構築支援」は、家具のサブスクリプションサービスに留まらず、オフィス移転から空間デザイン、家具選定までワンストップでサポートするサービスです。</li><li><strong>INTERIOR BASE事業</strong><br>設計会社・販売店・メーカー向けの家具什器受発注プラットフォーム「INTERIOR BASE」は、国内外のオフィス什器から海外のハイエンド家具まで、国内最大級の商品情報データベースを基に、スペックイン業務を大幅に効率化するサービスです。</li></ul><p><strong>受賞歴</strong></p><ul><li>東急アクセラレートプログラム2019Demo Day 東急賞受賞(2020年3月、東急グループ)</li><li>Next-generation Commerce Award 2020 特別賞受賞(2020年9月、公益社団法人日本通信販売協会)</li><li>日本サブスクリプションビジネス大賞2020 ブロンズ賞受賞(2020年12月、一般社団法人日本サブスクリプションビジネス振興会)</li><li>すごいベンチャー100選出(2021年8月、東洋経済)</li><li>日本ネット経済新聞賞 SDGs部門 特別賞(2022年6月、日本流通産業新聞社)</li><li>Mizuho Innovation Award 2024.3Q(2024年10月、みずほ銀行)</li></ul><p>町野代表は外資系大手コンピュータ会社（HP)、株式会社マクロミルを経て、<br>2012年に株式会社グライダーアソシエイツを設立。<br>同社がリリースしたオンラインキュレーションマガジンは、3年で400万ユーザー獲得というブレイクを果たし<br>2015年KAMARQに参画。翌年子会社のsubsclifeを立ち上げられました。</p><p>2018年に、家具メーカーで日本初となる家具のサブスクリプションサービスを開始した同社。<br>使い続けても商品価格を超えない仕組みの「サブスクライフ 」や、家具が循環する度にいいものをつくったメーカーに収益の一部を分配する「サブスクライフ オフプライス」など、持続可能な社会に還元する事業を一早く展開されています。</p><p>取り扱う家具は600ブランド 12万種以上、人気家電ブランド「バルミューダ」や、オフィス家具大手のコクヨ製品の取り扱いも開始。お客様用の家具コーディネートも、無料で提案しています。<br>さらに、利用期間終了後は、返却・購入・継続の3パターンから選択が可能。｢レンタル｣｢リース｣｢購入｣のいいとこどりができる、画期的なサービスです。</p><p>「家の中を、世界一、豊かな国へ。」というビジョンのもと、様々な業界経験・経歴を持つメンバーが集結。<br>「家具で常識を変える」を共通項に、それぞれが自分の強みを活かし、現場では日々新しいアイディアが生まれています。</p><p>昨今リモートワークが増えオフィスのあり方が見直される中、同社サービスは一層注目され、2020年には約30億円の資金調達を実施、2021年の1月には新サービスを提供開始、さらに2022年3月には約22億の資金調達を実施するなど、急速に成長を遂げています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 新規事業（業界向けDX）：事業責任者候補</div>
+          <div class="job-preview">業界特化型DXサービスの事業責任者として事業推進全体をリード</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>■ソーシャルインテリアについて</strong><br><strong>－MISSION－</strong><br>『インテリアの世界を変える。インテリアで世界を変える。』</p><p>インテリアには、世界を変えるチカラがある。私たちは、心からそう思っています。<br>働く場所を、人がリラックスして創造性を発揮させる場所へ。用事があるから行く場所を、好きだから行きたくなる場所へ。オフィスはもちろんのこと、パブリックな空間や自宅など、さまざまな場所、いろんな世界を素敵なインテリアで、心地いい空間に変えて行きたい。そのために、私たちはインテリアの世界を変えていきます。業界のわかりにくさを、わかりやすく。ちょっと閉鎖的なところを、オープンに。ひとつずつ変えることで、インテリアがもっと身近になっていく。そのために取り組みを続けていきます。<br>空間を変えた先にある、人の気持ちや、人と人のつながり方までよりいいものに変えていきたい。それが、私たちの挑戦です。</p><p>これまで日本初の家具のサブスク「subsclife」（2018年3月開始）をはじめとしたサービスを展開し、東洋経済すごいベンチャー100に選出、日本サブスク大賞でブロンズ賞を受賞。2024年9月には住友商事株式会社と資本業務提携契約を行い住友商事の持分法適用関連会社となりました。住友商事の強固な事業基盤と、ソーシャルインテリアの事業を連携させ、これまでのインテリアビジネスの枠にとどまらない事業プラットフォームの構築を目指し積極的に事業拡大を進めております。</p><p><strong>■事業について</strong><br>現在はオフィス構築支援を中心に3つの事業を展開しています。<br>インテリア業界に革命を起こすプラットフォーム企業として、私たちはこれからもユーザーとパートナーの双方に便益をもたらす、三方良しを実現する存在であり続けることを目指しております。</p><ul><li>SOCIAL INTERIOR | オフィス構築支援：toB向けのオフィス構築支援サービス(空間提案と新品家具のサブスクリプションサービス)</li><li>SOCIAL INTERIOR | 業務管理クラウド：設計・デザイナー向けの、家具什器スペックイン〜受発注プラットフォーム</li><li>subsclife：新品家具・家電のtoC向けのサブスクリプションサービス</li><li>THE MUSEUM | 共創型ショールーム兼オフィス：THE MUSEUMは、家具のみならず内装や照明・AV機器・アート・アロマに至るまで、複数のブランドのアイテムで総合的にコーディネートされた、約50ブランドの垣根を超えた共創型ショールーム兼オフィス</li></ul><p><strong>▪️社風/就業環境</strong></p><ul><li>オンオフの切り替えがしっかりしていて、メリハリを持って就業している社員が多い！</li><li>入社4ヶ月目に有給15日の付与あり！</li><li>業界未経験の社員も多く、誰でもチャレンジできる環境！</li><li>フレックス、在宅制度もあり柔軟な働き方ができます！<br>　子育てと両立している社員も多く会社全体で理解が深い環境です。</li><li>フリーアドレスのため、様々な部署とコミュニケーションを活発にとることができます。<br>　業務のことはもちろん、プライベートの話もしたりと和気藹々とした雰囲気です！</li><li>フリードリンクや社員専用のラウンジもございます！</li></ul><p><strong>■募集背景</strong><br>現在IPO準備期間に入り、これまでに大型の資金調達を実施。<br>新規事業として、業界特化型『DX』サービスをリリース。</p><p><strong>＜業務管理クラウドサービス＞</strong><br>https://lp-cloud.socialinterior.com/</p><p>この度、本新規事業の事業成長を牽引いただける方を募集しております。</p><p><strong>■お任せするミッション／仕事内容</strong><br>現在は役員が中心となってプロダクトマネジメントやビジネス側面の舵取りを行っています。<br>新たにジョインしていただく方には、当初は営業やカスタマーサクセス等のユーザーに近い場所でプロダクトとユーザーの解像度を上げていただくことを考えております。<br>その後は事業責任者として、事業推進全体をお任せしていく予定です。</p><ul><li>事業戦略／プロダクト戦略の立案</li><li>営業戦略策定および実行</li><li>ターゲット戦略と商材提案の最適化や営業フローの仕組み化</li><li>プロダクト改善に関する社内他部署との連携</li></ul><p><strong>＜導入企業様（一部抜粋）＞</strong></p><ul><li>株式会社サイバーエージェント 様</li><li>ラクスル株式会社 様</li><li>キンコーズ 様</li><li>トヨタコネクティッド株式会社 様</li><li>リアルゲイト 様</li></ul><p><strong>〈チーム構成：異業種出身者活躍中！〉</strong></p><ul><li>メンバーNさん（男性/大手オフィス商社出身/26歳）</li><li>メンバーIさん（女性/アプリ開発会社出身/34歳）</li><li>メンバーSさん（女性/大手不動産仲介出身/26歳）</li><li>メンバーTさん（男性/大手旅行系出版会社・学習塾出身/36歳）</li></ul><p><strong>■当社社員の入社理由</strong></p><ul><li>インテリア×サブスクというビジネスモデルを通して新しい価値を作っていけるところが面白い</li><li>有形・無形・toC・toBと幅広い領域に関わっていけるので、自身のキャリアを大きく広げていくこともできる</li><li>ベンチャーということもあり全てに関して整備されているわけではなく、その分トライ＆エラーで挑戦することができる</li><li>よいものが循環する社会に向けて環境的にも社会的にも意義のある仕事に感じた</li></ul><p><strong>【応募条件】</strong><br><span class='tag tag-must'>MUST</span><br>・事業や営業組織を牽引した経験</p><p><span class='tag tag-want'>WANT</span><br>・新規事業に携わりたい方<br>・組織作りに携わりたい方<br>・経営に近いポジションで働きたい方</p><p><strong>【求める人物像】</strong><br>・現職で営業経験を積み顧客との関係構築に自信のある方、また環境を変えて新規事業でチャレンジしたい方<br>・チームとして同じ価値観を共有しながら目標達成が目指せる方<br>・新規設立し稼働したばかりの事業なのでチームで日々試行錯誤し改善しながら実行する環境で成長したい方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.socialinterior.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k7"><div class="card-inner">
+  <div class="badges"><span class="badge">COO候補</span><span class="badge badge-blue">東証グロース</span></div>
+  <div class="co-name">リビン・テクノロジーズ株式会社</div>
+  <div class="co-url"><a href="https://www.lvn.co.jp/" target="_blank">https://www.lvn.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒103-0012　東京都中央区日本橋堀留町1-8-12 ホウライ堀留ビル8階</td></tr><tr><th>設立</th><td>2004年1月</td></tr><tr><th>上場区分</th><td>東証グロース</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>社長リレーション</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2004年1月に設立。インターネット広告代理店としてスタートし、その後EC事業やサイト運営など複数の事業に挑戦しつつ、現在は主に「不動産 × Webテクノロジー」に特化したビジネスを展開している、東証グロース上場企業です。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2004年1月に設立。インターネット広告代理店としてスタートし、その後EC事業やサイト運営など複数の事業に挑戦しつつ、現在は主に「不動産 × Webテクノロジー」に特化したビジネスを展開している、東証グロース上場企業です。<br>主に、不動産に関する情報・サービスをオンラインで媒介・マッチングするプラットフォーム事業と、不動産会社（仲介・買取・管理など）向けのクラウド型DX支援ツールの開発・運営を行っています。</p><p>主力サービスである不動産売却マッチングプラットフォーム「リビンマッチ」は、成約ベースの成功報酬モデル（利用企業は成果があった場合にのみ費用が発生）を武器に、高い費用対効果で加盟企業を拡大。年間24万件以上の査定依頼を受け付けており、国内最大級の規模を誇ります。<br>さらに、不動産会社向けのSaaS型業務支援ツールや集客支援サービスなどを展開し、収益の多様化も進行中。業界のDXインフラとしての地位確立を目指しています。<br>単なる「不動産情報サイト」にとどまらず、不動産会社と所有者（あるいは利用者）を結ぶマッチング機能に加え、不動産会社の業務効率化・DX支援を包括する幅広いサービス展開が同社の大きな特徴です。</p><p>組織は今期から事業別ユニット制へと移行しましたが、各ユニットの体制はまだ発展途上であり、事業推進力やマネジメント体制が相対的に弱いという課題を抱えています。今後は、各ユニットを自律的かつ戦略的に動かせる強い組織へと強化していきたいと考えています。</p><p><strong>代表取締役社長　川合大無（かわい・だいむ）氏</strong><br>1975年生まれ。東京農業大学卒業後、ニチモウ株式会社に入社。 バリューコマース株式会社、株式会社サイバーエージェントを経て、2004年に株式会社シースタイル（現：リビン・テクノロジーズ株式会社）を設立し代表取締役社長に就任。</p><p>2004年の設立以来、不動産テックの先駆者として「住生活の困ったをゼロにする」を掲げる成長企業です。<br>主力の「リビンマッチ」は、年間マッチング実績24万件、加盟企業数2,200社を誇る日本最大級の不動産査定・マッチングプラットフォームであり、この市場自体を創造してきた先行者メリットと圧倒的な優位性を持っています。</p><p>現在は東証グロースおよび名証メイン市場に上場。安定した既存事業に加え、宅建免許を取得し「リアル不動産仲介（エージェント事業）」へ参入を決定しました。<br>Webメディアで獲得した豊富な見込み顧客データを活用し、デジタル×リアルの融合で新たな収益モデルを構築する「第二創業期」のフェーズです。5年で売上3倍を目指し、M&Aによる非連続的な成長も戦略の柱に据えています。</p><p><strong>特徴</strong></p><ul><li><strong>上場企業の「第二創業期」に参画</strong><br>東証グロース・名証メインの二市場に上場しており、盤石な経営基盤があります。一方で、現在は「5年で売上3倍」を目指す変革期。M&Aの推進や新規事業（リアル仲介）の立ち上げなど、ダイナミックな成長フェーズに携われます。</li><li><strong>「デジタル×リアル」の新規事業立ち上げ</strong><br>年間24万件の問い合わせデータという強力な資産（見込み客情報）を武器に、ゼロから不動産仲介事業を立ち上げます。勝てるアセットを持って新規事業に挑める稀有な環境です。</li><li><strong>次世代経営人材の募集</strong><br>2023年9月より事業部制（ユニット制）へ移行し、事業責任者や、その右腕となる「No.2」ポジションのニーズが急騰しています。将来のCOO候補や事業責任者として、経営視座を持って働ける環境です。</li></ul></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 COO候補</div>
+          <div class="job-preview">全社横断での戦略立案と実行をリードする経営幹部候補</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>■募集背景</strong><br>今期より、組織体制を機能別から事業別ユニット制へ移行し、次世代経営人材の育成を推進しています。<br>しかしながら、各ユニット長には事業全体を統括する視点や経験が不足している状況であり、現在は代表自らが戦略策定・組織開発・実行までを担っているのが実情です。<br>こうした背景から、ビジネスサイドにおける戦略立案と実行をリードし、全社横断での全体最適を実現できる経営幹部（COO候補）の存在が強く求められています。</p><p><strong>事業ユニット構成：</strong></p><ol><li>不動産メディア事業ユニット（リビンマッチ等）</li><li>インキュベーション事業ユニット（ぬりマッチ等）</li><li>建築メディア事業ユニット（メタ住宅展示場）</li><li>不動産エージェント事業ユニット（リアル仲介、新規）</li></ol><p><strong>■想定される業務</strong><br>経営陣の一員として、経営目線を持ちながら事業横断での戦略策定と実行を担います。<br>セールスやマーケティングだけでなく、事業全体、場合によっては人事的な部分も含めた組織マネジメントを行い、全社の全体最適を図る役割を果たします。<br>次世代の組織開発を進め、優秀な若手が育つ組織体制を構築することも重要なミッションです。</p><p><strong>【応募条件】</strong><br><span class='tag tag-must'>MUST</span><br>デジタルマーケティング経験必須</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">⚠️ 副業条件によって可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.lvn.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k8"><div class="card-inner">
+  <div class="badges"><span class="badge">新規事業責任者候補</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">アスエネ株式会社</div>
+  <div class="co-url"><a href="https://corp.asuene.com/company" target="_blank">https://corp.asuene.com/company</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒105-0001 東京都港区虎ノ門1-10-5 KDX虎ノ門一丁目ビル WeWork 4階</td></tr><tr><th>設立</th><td>2019年</td></tr><tr><th>従業員数</th><td>正社員280名、業務委託を含め400名超</td></tr><tr><th>上場区分</th><td>未上場（N-1フェーズ）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備中</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「次世代によりよい世界を」をミッションに2019年に創業した、気候変動問題解決に取り組むクライメートテック企業です。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「次世代によりよい世界を」をミッションに2019年に創業した、気候変動問題解決に取り組むクライメートテック企業です。<br>CO2排出量見える化・削減・報告クラウドサービス「ASUENE」、サプライチェーンマネジメントクラウドサービス「ASUENE SUPPLY CHAIN」、GX・ESG人材特化型転職プラットフォーム「ASUENE CAREER」、非財務データの第三者保証事業「ASUENE VERITAS」、カーボンクレジット取引所「Carbon EX」など脱炭素・ESG領域のマルチプロダクトを提供し、企業のサステナビリティ経営をワンストップで支援しています。</p><p>実績は圧倒的で、「ASUENE」は導入社数3年連続No.1、ESG評価クラウドも2年連続No.1を獲得しており、累計資金調達額は115億円に達しています。また、三井住友銀行の事業を買収・統合するなどこれまでに6社のM&Aを実施し、成長戦略の中核としています。現在は日本・米国・シンガポール・ロンドンなど世界6ヶ国に拠点を持ち、グローバル展開を加速させています。<br>米誌の「2025 World's Top GreenTech Companies」に、日本のCO2排出量見える化クラウド企業で唯一選出されるなど、世界的な評価も高い成長企業です。</p><p><strong>Founder 代表取締役CEO　西和田 浩平 氏</strong><br>慶應義塾大学卒業、三井物産にて日本・欧州・中南米の再生可能エネルギーの新規事業投資・M&Aを担当。ブラジル海外赴任中に分散型電源企業に出向、海外のM&A・PMI・事業投資・新規事業などを経験。<br>Forbes Japan Rising Star Award受賞、Forbes Japan 100選出など多数のアワードを受賞。<br>2025年12月に初の著書「『世界で勝てるGX』脱炭素資本主義が動かす、再エネ×AI主導の21世紀の産業革命」を出版</p><p><strong>特徴</strong></p><ul><li><strong>圧倒的な成長資金と財務基盤：</strong><br>　累計資金調達額は115億円に上り、米国展開を加速させています。スタートアップながらメガバンク（SMBC）のプロダクトを事業承継するなど、異例かつ規模の大きなM&Aも成功させています。</li><li><strong>グローバルな事業展開：</strong><br>　現在、日本を含めて6カ国（東京、シンガポール、ロサンゼルス、ロンドン、バンコク、セブ）に現地拠点を持ち、事業を拡大しています。</li><li><strong>市場No.1の実績と優位性：</strong><br>　主力サービス「ASUENE」は3年連続導入社数No.1、「ASUENE SUPPLY CHAIN（旧ASUENE ESG）」も2年連続No.1を獲得しており、業界内での地位を確立しています。</li><li><strong>ハイクラス人材が集う組織</strong> 正社員280名、業務委託を含め400名超の組織体制です。現在、事業部やコーポレート部門、CEO直下の新規事業などでマネージャー以上のハイクラス人材を積極採用しており、優秀なメンバーと切磋琢磨できる環境です。</li></ul><p>IPOできる体制は整えていますが、大型IPOを狙い市況を見ながら上場タイミングを見計らっています。<br>規制・ルールメイクが厳しい欧州・米国に進出しいち早く反映していることも、優位性の一つです。<br>時価総額一兆円に向かって事業急拡大中の同社、一度お話を聞いてみませんか？</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 新規事業責任者候補</div>
+          <div class="job-preview">0→1立ち上げから営業/事業開発のリード、PMFまでのスケール</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【仕事内容】</strong><br>アスエネでは、複数の新規事業開発に取り組んでいます。<br>本ポジションは、新規事業開発の責任者候補として経営戦略の実現を支える重要なポジションです。</p><p>経営陣とともに、0→1立ち上げから営業/事業開発のリード、PMFまでのスケールなどを一手に担っていただきます。<br>スピード感のある経営判断をダイナミックに体感しながら、この先の未来の事業を創ることができます。</p><p>※新規事業の具体的な内容は開示していないため、面談や面接の中でお話しできればと思います。</p><p><strong>【事業内容】</strong></p><ul><li>「ASUENE」：CO2排出量見える化・削減・報告クラウドサービス</li><li>「ASUENE SUPPLY CHAIN」：サプライチェーンマネジメントプラットフォーム</li><li>「ASUENE CAREER」：GX・ESG人材特化型転職プラットフォーム</li><li>「Carbon EX」：カーボンクレジット・排出権取引所</li><li>「ASUENE VERITAS」：脱炭素・非財務情報の第三者検証・保証、アドバイザリーサービス</li></ul><p><strong>【応募条件】</strong><br><span class='tag tag-must'>MUST</span><br>・事業戦略の構築経験<br>・要件定義やプロジェクト推進の経験<br>・0→1フェーズの事業またはプロダクト立ち上げ経験経験</p><p>・経験として、下記のいずれかを満たす。<br>　　・総合商社や事業会社における経営企画/事業開発等、企画部門での実務経験（目安：5年以上）<br>　　・戦略/経営コンサルティングファーム/投資銀行における勤務経験（目安：5年以上）</p><p><span class='tag tag-want'>WANT</span><br>・ ビジネスレベルの英語力を持する。</p><p><strong>【求める人物像】</strong><br>・自律的に行動ができ、貪欲に新しい知識や事柄を吸収し、アウトプットできる方<br>・目標達成に向けて強くコミットしてきた経験がある方<br>・ミッション&quot;次世代によりよい世界を&quot;の実現に本気で一緒に取り組んでくださる方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">⚠️ 副業条件によって可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.asuene.com/company" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k9"><div class="card-inner">
+  <div class="badges"><span class="badge">【オープンポジション】次世代経営幹部候補</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">ハコベル株式会社</div>
+  <div class="co-url"><a href="https://corp.hacobell.com/" target="_blank">https://corp.hacobell.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都中央区八丁堀2-14-1　住友不動産八重洲通ビル1・3F</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備中（上場スケジュールは口頭でお伝えいたします）</li><li>社長リレーション</li><li>過去複数名入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">ハコベルは「物流の『次』を発明する」というMissionのもと、2015年に荷主とドライバーをつなぐマッチングサービスとして事業をスタートしました。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>ハコベルは「物流の『次』を発明する」というMissionのもと、2015年に荷主とドライバーをつなぐマッチングサービスとして事業をスタートしました。ドライバーの非稼働時間を有効活用することで、低価格かつ「誰でも・早く・簡単に」配送できる仕組みを実現し、物流業界の課題解決に挑んできた企業です。</p><p>2019年からは、一般貨物向けのマッチングサービスに加え、配車管理システムの提供を開始。さらに近年はM&Aを通じて事業基盤を大きく拡張しています。</p><ul><li>2024年9月：モノフル社の「トラック簿」事業を承継（初のM&A）</li><li>2025年12月：Azoop社の「トラッカーズマネージャー」事業を吸収分割により承継</li></ul><p>車両・運行・労務管理、収益可視化までをカバーする機能を統合し、既存事業とのシナジーを最大化しています。</p><p>ハコベルはもともとラクスル株式会社の一事業として成長してきましたが、2022年8月にBtoB物流No.1のセイノーHDとラクスルのJVとして独立し、現在のハコベル株式会社が誕生しました。その後も、2023年10月には 山九株式会社／福山通運株式会社／日本ロジテム株式会社を引受先とする第三者割当増資を実施。日本を代表する物流企業が株主として名を連ね、業界全体を巻き込んだ変革に本気で取り組む体制を築いています。</p><p>背景にあるのは、ラクスルのVision「仕組みを変えれば、世界はもっと良くなる」、セイノーHDのMission「日本の物流ネットワークを効率化する」、この2つの思想を融合させ、数年後のIPOを見据えた成長フェーズに突入しています。</p><p>現在ハコベルでは、狭間社長の&quot;ビジネスパートナー&quot;として経営を共に推進するNo.2ポジションの採用を強化中。狭間社長のビジネスパートナー的な位置づけで是非経営を共に推進いただける方を求めたいとの切実なメッセージを頂いています！物流×テクノロジーの最前線で、日本の社会インフラを変えていく。その中核を担う、ぜひ注目していただきたい企業です。</p><p><strong>代表取締役社長CEO　狭間 健志氏</strong><br>1985年生まれ。東京大学大学院農学生命科学研究科修士課程修了後、ベイン・アンド・カンパニーの東京オフィスに入社。多岐にわたる業界の日系・外資系クライアントを担当。2017年8月、ラクスル株式会社へ入社。執行役員ハコベル事業本部長として5年間職務に携わったのち、分社化に伴い2022年8月、現職に就任。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 【オープンポジション】次世代経営幹部候補</div>
+          <div class="job-preview">狭間社長のビジネスパートナーとして経営を共に推進するNo.2ポジション</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>◆Mission</strong><br>ハコベルは「物流の「次」を発明する」というMissionの下、2015年に荷主とドライバーをつなぐマッチングサービスを開始しました。ドライバーの非稼働時間を活用することで、低価格かつ、誰でも早く簡単に配送ができる仕組みを実現し、2019年からは一般貨物を対象としたマッチングサービスと、業務の効率化を目的とした配車管理システムの提供も開始しています。</p><p>2022年7月まではラクスル株式会社の1つの事業でしたが、2022年8月よりBtoB物流No.1のセイノーHDとラクスルのJVとして「ハコベル株式会社」を設立し、独立することになりました。 「仕組みを変えれば世界はもっと良くなる」のラクスルのVision、「日本の物流ネットワークを効率化する」というセイノーHDのMissionのもと、 数年後のIPOを見据えて新しい会社の経営チームを募集しています。</p><p>14兆円を超える物流業界において、セイノーHDの有するブランド・全国の営業ネットワークと、ハコベルというプロダクトを融合し、日本の物流を変革していきます。</p><p><strong>◆職務内容</strong><br>オープンポジションでの募集になります。面接時に希望を伺ったうえで、配属部署を決定いたします。</p><p>ハコベルは荷主とドライバーをつなぐマッチングプラットフォーム事業と物流企業の業務効率化を担うSaaS事業を運営しております。事業責任者、営業、事業企画（Bizdev）、オペレーションマネジメント、PdMなど様々なキャリアが広がっています。14兆円もの市場規模を誇る物流市場において、「物流の「次」を発明する」というmissionに共感いただける方をお待ちしております。</p><p><strong>必須（MUST）</strong></p><ul><li><span class='tag tag-must'>MUST</span>当社ミッションへの共感</li><li><span class='tag tag-must'>MUST</span>新規事業推進のための実行力と交渉力</li><li><span class='tag tag-must'>MUST</span>やり遂げる執着心</li><li><span class='tag tag-must'>MUST</span>社内外の人間と円滑に業務を進められるコミュケーション能力</li><li><span class='tag tag-must'>MUST</span>社内外の人間からフィードバックを集められる素直な心</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.hacobell.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k10"><div class="card-inner">
+  <div class="badges"><span class="badge">【次世代ビジネスリーダー】事業企画/事業開発ー経営層直下ポジションー</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社Hacobu</div>
+  <div class="co-url"><a href="https://hacobu.jp" target="_blank">https://hacobu.jp</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区芝5丁目29番11号 G-BASE田町4階</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    IPO準備中
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「運ぶを最適化する」をミッションとする、物流テックスタートアップです。三井不動産、大和ハウス、アスクル、日本郵政、ソニー、日野自動車といったビックネームからも大型の資金調達をもって応援され、ネットワークを生かし業界に新しいルールをつくり始めています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「運ぶを最適化する」をミッションとする、物流テックスタートアップです。三井不動産、大和ハウス、アスクル、日本郵政、ソニー、日野自動車といったビックネームからも大型の資金調達をもって応援され、ネットワークを生かし業界に新しいルールをつくり始めています。</p><p>物流業界は、紙・FAX・電話中心のアナログ業務と多重下請け構造が原因で、非効率なオペレーションと長時間労働が常態化しているという大きな課題があります。日本の物流市場は約25兆円ある巨大市場であり、その中でHacobuがターゲットとする「企業間物流」は約13兆円の市場規模を占めます。企業間物流は製品が自宅や流通の店舗に届く前の物流を指し、メーカー、卸、小売、物流企業、運送会社などのプレイヤーが複雑に絡み合う構造の業界にメスを入れています。</p><p>トラック予約受付サービス「MOVO Berth」、動態管理サービス「MOVO Fleet」、配送案件管理サービス「MOVO Vista」などのクラウドサービスと、コンサルティングサービス「Hacobu Strategy」を展開し、企業間物流の最適化を支援しています。現在、アサヒ飲料や花王、ビックカメラなど主に日用品や食品関連企業、物流事業者と契約し、MOVOを利用する事業所は計約1万5千カ所、累計利用ドライバー数は54万人にのぼります。これは日本のトラックドライバー数の約2/3に相当し、トラック予約受付サービスではNo.１のシェアを誇っています。</p><p>これまでの累計資金調達額は約43億円で、さらなるMOVOネットワークの拡大を進めるとともに、データテクノロジーへの投資を加速しています。内閣府から発表された物流改善に向けた政策パッケージを受け、更なる事業の急拡大フェーズを迎えており、昨年度は過去最高売上を記録しました。2024年6月には150名となり2025年5月末には200名体制を目指しています。</p><p>組織はとてもフラットで、皆様下の名前やあだなで呼び合うとのこと・・hacobu Valueへの共感を大切に考えられているので、ご応募されるかの判断としてご一読いただけますと幸いです。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 【次世代ビジネスリーダー】事業企画/事業開発ー経営層直下ポジションー</div>
+          <div class="job-preview">成長過程にあるスタートアップ企業の経営層直下のポジション</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【募集背景】</strong><br>当社は物流の課題をワンストップで解決するSaaSを提供しています。主力となるトラック予約受付サービスを始めマルチプロダクトを展開しており、より各プロダクト及び事業全体の成長を加速させるべく、未来の中核人材を積極的に募集しています。</p><p><strong>【仕事内容】</strong><br>成長過程にあるスタートアップ企業の経営層直下のポジションで、ビジネス拡大に向けた戦略立案から施策プランニング、実施までを担っていただきます。物流という、あらゆるビジネスに欠かせないインフラである領域において、ゲームチェンジャーとしてデジタルトランスフォーメーションの流れをけん引する役割は、他では味わえない醍醐味があります。</p><p>面接の中で、ご経験やご志向に応じてふさわしい部署、役割を検討させていただき、ご経験によってはマネージャー候補としてジョインいただく可能性もございます。</p><p><strong>＜具体的なミッション可能性＞</strong></p><ul><li>プロダクト軸での事業拡大に向けたグロース戦略立案、実施</li><li>事業成長を実現する戦略・戦術の立案と実行（PR・マーケティング・営業を通貫する施策の策定）</li><li>営業、カスタマーサクセスにおけるKPI設計とモニタリング</li><li>株主との事業シナジー実現のための折衝・契約実務、パートナー企業や代理店チャネル開拓</li></ul><p><strong>必須スキル</strong></p><ul><li><span class='tag tag-must'>MUST</span>下記いずれかのご経験をお持ちの方<ul><li>コンサルティング経験３年以上</li><li>事業会社での事業企画、事業開発、経営企画、等の経験３年以上</li><li>事業責任者として事業のグロースに関わったご経験</li><li>PdM／PMMとしてプロダクトのグロースに関わったご経験</li><li>もしくは上記職務内容に親和性の高い業務に携わったご経験</li></ul></li></ul><p><strong>歓迎スキル</strong></p><ul><li><span class='tag tag-want'>WANT</span>IT/SaaS業界での経験</li><li><span class='tag tag-want'>WANT</span>物流業界の知識</li><li><span class='tag tag-want'>WANT</span>英語力</li></ul><p><strong>求める人物像</strong></p><ul><li>社会課題解決への意欲がある方</li><li>ベンチャーならではの変化やスピードを楽しむことができる方</li><li>自分のやり方に固執しない（Unlearnできる）方</li><li>チームワークを大切にする方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://hacobu.jp" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k11"><div class="card-inner">
+  <div class="badges"><span class="badge">事業戦略部_経営企画/M&A</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">霞ヶ関キャピタル株式会社</div>
+  <div class="co-url"><a href="https://kasumigaseki.co.jp/" target="_blank">https://kasumigaseki.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都千代田区霞が関3丁目2番1号 霞が関コモンゲート 西館 28階</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>役員リレーション</li><li>過去入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">人口減少、観光需要の変化、物流の人手不足、医療・介護の地域格差、海外市場の成長といった社会課題を起点に事業を設計する、不動産×金融領域の成長デベロッパーです。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>人口減少、観光需要の変化、物流の人手不足、医療・介護の地域格差、海外市場の成長といった社会課題を起点に事業を設計する、不動産×金融領域の成長デベロッパーです。</p><p>ホテル・物流・ヘルスケア・海外の4領域において、用地の企画・開発から、運用、ファンド化（AM）までを自社で一貫して手がける独自モデルを確立しています。成長スピードは上場企業の中でも際立っており、2025年8月期には中期経営計画を1年前倒しで達成。さらにホテル特化型REITを上場し、主要事業はすべて「開発」から「運用」フェーズへと移行しました。これにより、開発益に加え、PJM報酬・成功報酬・AM報酬を組み合わせた複層的かつ安定的な収益構造が完成しています。</p><p>現在は、日本で磨き上げた事業モデルをベースに、ドバイおよびASEANを中心とした海外開発事業を本格拡大中。単なる投資に留まらず、自社主導の開発型ビジネスとして海外市場に展開している点も特徴です。次の経営目標は、2029年に当期純利益500億円の達成。事業ポートフォリオの拡大に伴い、経営戦略・事業推進・管理機能の強化が進められています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 事業戦略部_経営企画/M&A</div>
+          <div class="job-preview">物流開発事業において経営企画・中期計画策定・M&A支援を担当</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【業務内容】</strong><br>当社の物流開発事業において、以下の業務をお任せします。</p><p><strong>■経営企画・中期計画の策定</strong></p><ul><li>中期経営計画（3～5年）の立案</li><li>市場動向、競合調査をもとにした成長シナリオ作成</li><li>事業ポートフォリオの見直し</li></ul><p><strong>■予算策定・管理</strong></p><ul><li>物流部門の年間予算の作成</li><li>月次、四半期での予算と実績の差異分析</li></ul><p><strong>■事業戦略・施策の企画と実行支援</strong></p><ul><li>新規事業やM&Aの企画とデューデリジェンス支援</li></ul><p><strong>【やりがい・魅力】</strong><br><strong>＜市場創造の最前線でキャリアを築く＞</strong><br>2020年に立ち上がった物流本部では5年で冷凍冷蔵倉庫のデベロッパーとして確固たるポジションを築いています。今後5年では、冷凍冷蔵倉庫デベロッパーとして蓄積したノウハウを活かしながら、海外展開を検討しています。また、国内においては、デベロッパーとしての領域を超え、関連業界との連携・関係強化を見据えたスケールの大きな事業構想が進行中です。</p><p><strong>＜発想を形にできる柔軟な組織風土＞</strong><br>「やってみたい」という気持ちが尊重され、自らのアイデアを発信・提案できる文化があります。兼務しているメンバーも多く、挑戦意欲さえあれば主務以外の業務にも積極的に関わることができます。</p><p><strong>＜新規事業にチャレンジできる土壌＞</strong><br>既存の枠にとらわれない事業開発にも積極的な当社。新たなアセットやスキームの提案が通れば、未知の領域にも果敢に投資できる体制があります。「自分発信」で事業を動かす経験を積みたい方には、非常にエキサイティングな環境です。</p><p><strong>【募集背景】</strong><br>今後の業務拡大を見込んだ人員強化</p><p><strong>【組織】</strong><br>事業戦略部（10名）<br>部長2名 - 副部長1名 - メンバー7名</p><p><strong>必須スキル</strong></p><ul><li><span class='tag tag-must'>MUST</span>M&A関連業務の経験3年以上（事業会社／金融機関／コンサル出身歓迎）</li><li><span class='tag tag-must'>MUST</span>経営企画の視点とM&A実務の両輪で動ける方</li><li><span class='tag tag-must'>MUST</span>不動産、物流業界の知識不問（未経験者多数在籍）</li><li><span class='tag tag-must'>MUST</span>PL／BSが「読める、作れる」程度の数字感覚</li></ul><p><strong>求める人物像</strong></p><ul><li>真面目で素直、人に優しく、チームで信頼される方</li><li>自ら課題を拾い、率先して動ける方</li><li>PJ進行中に問題点を見つけて発言・提案できる主体性</li></ul><p>当社は「その課題を、価値へ。」という企業理念のもと、失敗を恐れず、常に新しい挑戦を続けていくことを大切にしています。採用メッセージは「変化を起こす側へ、回れ。」変化を恐れず、ルールや固定観念に固執せず、柔軟性と行動力を持って進化し続ける人材を求めています。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://kasumigaseki.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k12"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社NEXT ONE（ネクストワン）</div>
+  <div class="co-url"><a href="https://nx1.co.jp/" target="_blank">https://nx1.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都渋谷区渋谷3-3-5 NBF渋谷イースト3F</td></tr><tr><th>設立</th><td>2007年6月</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2007年6月設立。時代の変化とともに多様化する社会課題に対応し、新たな事業を創造し続ける「事業創出企業」。代表取締役社長・斉藤徹氏が24歳で創業し、2027年の上場予定（N-1フェーズ）にあります。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2007年6月設立。時代の変化とともに多様化する社会課題に対応し、新たな事業を創造し続ける「事業創出企業」。代表取締役社長・斉藤徹氏が24歳で創業し、2027年の上場予定（N-1フェーズ）にあります。</p><p>創業当初は光ファイバー回線代理店事業からスタートし2019年、自社サービスとして「電力サービス」を立ち上げ、ストック型ビジネスへ転換。現在は約8万ユーザーが利用し、売上100億円規模／営業利益十数億円を達成しています。</p><p>2024年4月には、代表自身が強い想いを持つ「障害者雇用支援ビジネス」を新規事業として始動。単なる雇用ではなく、障がいを持つ方々が&quot;成長を実感できる仕事&quot;を提供することを目的としています。新百合ヶ丘に設立した1,000坪の植物工場では、イチゴ・メロン・コチョウランなど高付加価値作物を栽培。障がい特性に応じた業務を設計し、最低賃金を上回る報酬水準を実現する仕組みを構築中です。</p><p>同社は利益追求と社会貢献を両立する企業として、仕組み化・効率化・DX・AI化を強みとし、少数精鋭で高い生産性を実現しています。2030年に向けて営業利益120億円規模を目標に事業拡大を推進中です。</p><p><strong>■ 事業の特徴・差別化</strong></p><p><strong>【電力事業】</strong></p><ul><li>若年層（20代中心）に選ばれる電力サービスを展開。</li><li>料金は地域電力よりやや高いが、サポート品質（電話即応／土日対応）が高く評価。</li><li>今後はNetflix・家電など付帯サービスのバンドルでLTV向上を狙う。</li></ul><p><strong>【障害者雇用支援事業】</strong></p><ul><li>企業が雇用した障がい者がNEXT ONE運営の農園で就業。</li><li>法定雇用率引き上げにより需要が拡大。スピードと生産性で高評価を獲得。</li></ul><p><strong>代表取締役社長　斉藤 徹 氏</strong><br>1982年10月千葉県生まれ。グロービス経営大学院経営学研究科修了（MBA）。通信関連サービス会社で最年少支店長に昇格し、札幌支店の立ち上げで1年以内に業績を急拡大。「関わった人の人生を変えられる会社をつくりたい」との想いから2006年に独立。2007年、株式会社NEXT ONEを設立。論理的アプローチと仕組み化・効率化を通じ、社会課題を解決する&quot;社会貢献型ビジネス&quot;を展開中。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション</div>
+          <div class="job-preview">ご経験や適性に応じたポジションを提案</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案させていただきます。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">❌ 副業不可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://nx1.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k13"><div class="card-inner">
+  <div class="badges"><span class="badge">新規事業（業界向けDX）：事業責任者候補</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社ソーシャルインテリア（旧：subsclife/サブスクライフ）</div>
+  <div class="co-url"><a href="https://corp.socialinterior.com/" target="_blank">https://corp.socialinterior.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区南青山2-5-17 POLA青山ビルディング 9F</td></tr><tr><th>設立</th><td>2016年</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備フェーズ：N-1期</li><li>社長リレーション</li><li>過去複数名入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2016年「家具業界の革命」を志し株式会社subsclifeとして創業。2018年3月に日本で初めて家具のサブスクリプションサービスをローンチ。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2016年「家具業界の革命」を志し株式会社subsclifeとして創業。2018年3月に日本で初めて家具のサブスクリプションサービスをローンチ。</p><p>「インテリアの世界を変える。インテリアで世界を変える。」をミッションに掲げ、「オンライン販売事業」「オフィス構築支援事業」「INTERIOR BASE事業」の3事業を展開しています。&quot;家具のサブスク&quot;という単一モデルから脱却し、現在は INTERIOR BASE事業を成長エンジンとして、事業ポートフォリオの進化を進めています。アナログ業務が多く残るインテリア業界において、生産性向上とイノベーションの実現を加速させ、業界全体の構造変革と持続的な成長に寄与するサービス展開を推進していきます。</p><p>現在は、近年のIPOを見据え、予実達成を前提にいつでも上場可能な体制を整えた&quot;最終準備フェーズ&quot;に入っています。</p><p><strong>▼事業紹介</strong></p><ul><li><strong>オンライン販売事業</strong><br>家具・家電のセレクト型オンラインストア「サブスクライフ」(2018年3月開始)は、新品・ヴィンテージ品・中古品・アウトレット品からお気に入りの商品を探せるサービスです。支払い方法をサブスクにすることで、月額で必要な時に必要な分だけ、必要なモノを所有せずに利用することが可能です。</li><li><strong>オフィス構築支援事業</strong><br>法人向けの「ソーシャルインテリア オフィス構築支援」は、家具のサブスクリプションサービスに留まらず、オフィス移転から空間デザイン、家具選定までワンストップでサポートするサービスです。</li><li><strong>INTERIOR BASE事業</strong><br>設計会社・販売店・メーカー向けの家具什器受発注プラットフォーム「INTERIOR BASE」は、国内外のオフィス什器から海外のハイエンド家具まで、国内最大級の商品情報データベースを基に、スペックイン業務を大幅に効率化するサービスです。</li></ul><p>町野代表は外資系大手コンピュータ会社（HP)、株式会社マクロミルを経て、2012年に株式会社グライダーアソシエイツを設立。同社がリリースしたオンラインキュレーションマガジンは、3年で400万ユーザー獲得というブレイクを果たし2015年KAMARQに参画。翌年子会社のsubsclifeを立ち上げられました。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 新規事業（業界向けDX）：事業責任者候補</div>
+          <div class="job-preview">業界特化型『DX』サービスの事業責任者として事業成長を牽引</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>■ソーシャルインテリアについて</strong></p><p><strong>－MISSION－</strong><br>『インテリアの世界を変える。インテリアで世界を変える。』</p><p>インテリアには、世界を変えるチカラがある。私たちは、心からそう思っています。働く場所を、人がリラックスして創造性を発揮させる場所へ。用事があるから行く場所を、好きだから行きたくなる場所へ。オフィスはもちろんのこと、パブリックな空間や自宅など、さまざまな場所、いろんな世界を素敵なインテリアで、心地いい空間に変えて行きたい。そのために、私たちはインテリアの世界を変えていきます。業界のわかりにくさを、わかりやすく。ちょっと閉鎖的なところを、オープンに。ひとつずつ変えることで、インテリアがもっと身近になっていく。そのために取り組みを続けていきます。空間を変えた先にある、人の気持ちや、人と人のつながり方までよりいいものに変えていきたい。それが、私たちの挑戦です。</p><p>これまで日本初の家具のサブスク「subsclife」（2018年3月開始）をはじめとしたサービスを展開し、東洋経済すごいベンチャー100に選出、日本サブスク大賞でブロンズ賞を受賞。2024年9月には住友商事株式会社と資本業務提携契約を行い住友商事の持分法適用関連会社となりました。住友商事の強固な事業基盤と、ソーシャルインテリアの事業を連携させ、これまでのインテリアビジネスの枠にとどまらない事業プラットフォームの構築を目指し積極的に事業拡大を進めております。</p><p><strong>■事業について</strong><br>現在はオフィス構築支援を中心に3つの事業を展開しています。インテリア業界に革命を起こすプラットフォーム企業として、私たちはこれからもユーザーとパートナーの双方に便益をもたらす、三方良しを実現する存在であり続けることを目指しております。</p><ul><li>SOCIAL INTERIOR | オフィス構築支援：toB向けのオフィス構築支援サービス(空間提案と新品家具のサブスクリプションサービス)</li><li>SOCIAL INTERIOR | 業務管理クラウド：設計・デザイナー向けの、家具什器スペックイン〜受発注プラットフォーム</li><li>subsclife：新品家具・家電のtoC向けのサブスクリプションサービス</li><li>THE MUSEUM | 共創型ショールーム兼オフィス：THE MUSEUMは、家具のみならず内装や照明・AV機器・アート・アロマに至るまで、複数のブランドのアイテムで総合的にコーディネートされた、約50ブランドの垣根を超えた共創型ショールーム兼オフィス</li></ul><p><strong>■募集背景</strong><br>現在IPO準備期間に入り、これまでに大型の資金調達を実施。新規事業として、業界特化型『DX』サービスをリリース。</p><p><strong>＜業務管理クラウドサービス＞</strong><br>https://lp-cloud.socialinterior.com/</p><p>この度、本新規事業の事業成長を牽引いただける方を募集しております。</p><p><strong>■お任せするミッション／仕事内容</strong><br>現在は役員が中心となってプロダクトマネジメントやビジネス側面の舵取りを行っています。新たにジョインしていただく方には、当初は営業やカスタマーサクセス等のユーザーに近い場所でプロダクトとユーザーの解像度を上げていただくことを考えております。その後は事業責任者として、事業推進全体をお任せしていく予定です。</p><ul><li>事業戦略／プロダクト戦略の立案</li><li>営業戦略策定および実行</li><li>ターゲット戦略と商材提案の最適化や営業フローの仕組み化</li><li>プロダクト改善に関する社内他部署との連携</li></ul><p><strong>＜導入企業様（一部抜粋）＞</strong></p><ul><li>株式会社サイバーエージェント 様</li><li>ラクスル株式会社 様</li><li>キンコーズ 様</li><li>トヨタコネクティッド株式会社 様</li><li>リアルゲイト 様</li></ul><p><strong>必須スキル</strong></p><ul><li><span class='tag tag-must'>MUST</span>事業や営業組織を牽引した経験</li></ul><p><strong>歓迎スキル</strong></p><ul><li><span class='tag tag-want'>WANT</span>新規事業に携わりたい方</li><li><span class='tag tag-want'>WANT</span>組織作りに携わりたい方</li><li><span class='tag tag-want'>WANT</span>経営に近いポジションで働きたい方</li></ul><p><strong>求める人物像</strong></p><ul><li>現職で営業経験を積み顧客との関係構築に自信のある方、また環境を変えて新規事業でチャレンジしたい方</li><li>チームとして同じ価値観を共有しながら目標達成が目指せる方</li><li>新規設立し稼働したばかりの事業なのでチームで日々試行錯誤し改善しながら実行する環境で成長したい方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.socialinterior.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k14"><div class="card-inner">
+  <div class="badges"><span class="badge">COO候補</span><span class="badge badge-blue">東証グロース</span></div>
+  <div class="co-name">リビン・テクノロジーズ株式会社</div>
+  <div class="co-url"><a href="https://www.lvn.co.jp/" target="_blank">https://www.lvn.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都中央区日本橋堀留町1-8-12 ホウライ堀留ビル8階</td></tr><tr><th>設立</th><td>2004年1月</td></tr><tr><th>上場区分</th><td>東証グロース</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li><strong>上場企業の「第二創業期」に参画</strong><br>東証グロース・名証メインの二市場に上場しており、盤石な経営基盤があります。一方で、現在は「5年で売上3倍」を目指す変革期。M&Aの推進や新規事業（リアル仲介）の立ち上げなど、ダイナミックな成長フェーズに携われます。</li><li><strong>「デジタル×リアル」の新規事業立ち上げ</strong><br>年間24万件の問い合わせデータという強力な資産（見込み客情報）を武器に、ゼロから不動産仲介事業を立ち上げます。勝てるアセットを持って新規事業に挑める稀有な環境です。</li><li><strong>次世代経営人材の募集</strong><br>2023年9月より事業部制（ユニット制）へ移行し、事業責任者や、その右腕となる「No.2」ポジションのニーズが急騰しています。将来のCOO候補や事業責任者として、経営視座を持って働ける環境です。</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2004年1月に設立。インターネット広告代理店としてスタートし、その後EC事業やサイト運営など複数の事業に挑戦しつつ、現在は主に「不動産 × Webテクノロジー」に特化したビジネスを展開している、東証グロース上場企業です。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2004年1月に設立。インターネット広告代理店としてスタートし、その後EC事業やサイト運営など複数の事業に挑戦しつつ、現在は主に「不動産 × Webテクノロジー」に特化したビジネスを展開している、東証グロース上場企業です。</p><p>主に、不動産に関する情報・サービスをオンラインで媒介・マッチングするプラットフォーム事業と、不動産会社（仲介・買取・管理など）向けのクラウド型DX支援ツールの開発・運営を行っています。</p><p>主力サービスである不動産売却マッチングプラットフォーム「リビンマッチ」は、成約ベースの成功報酬モデル（利用企業は成果があった場合にのみ費用が発生）を武器に、高い費用対効果で加盟企業を拡大。年間24万件以上の査定依頼を受け付けており、国内最大級の規模を誇ります。</p><p>さらに、不動産会社向けのSaaS型業務支援ツールや集客支援サービスなどを展開し、収益の多様化も進行中。業界のDXインフラとしての地位確立を目指しています。</p><p>単なる「不動産情報サイト」にとどまらず、不動産会社と所有者（あるいは利用者）を結ぶマッチング機能に加え、不動産会社の業務効率化・DX支援を包括する幅広いサービス展開が同社の大きな特徴です。</p><p>組織は今期から事業別ユニット制へと移行しましたが、各ユニットの体制はまだ発展途上であり、事業推進力やマネジメント体制が相対的に弱いという課題を抱えています。今後は、各ユニットを自律的かつ戦略的に動かせる強い組織へと強化していきたいと考えています。</p><p><strong>代表取締役社長　川合大無（かわい・だいむ）氏</strong><br>1975年生まれ。東京農業大学卒業後、ニチモウ株式会社に入社。 バリューコマース株式会社、株式会社サイバーエージェントを経て、2004年に株式会社シースタイル（現：リビン・テクノロジーズ株式会社）を設立し代表取締役社長に就任。</p><p>2004年の設立以来、不動産テックの先駆者として「住生活の困ったをゼロにする」を掲げる成長企業です。主力の「リビンマッチ」は、年間マッチング実績24万件、加盟企業数2,200社を誇る日本最大級の不動産査定・マッチングプラットフォームであり、この市場自体を創造してきた先行者メリットと圧倒的な優位性を持っています。</p><p>現在は東証グロースおよび名証メイン市場に上場。安定した既存事業に加え、宅建免許を取得し「リアル不動産仲介（エージェント事業）」へ参入を決定しました。Webメディアで獲得した豊富な見込み顧客データを活用し、デジタル×リアルの融合で新たな収益モデルを構築する「第二創業期」のフェーズです。5年で売上3倍を目指し、M&Aによる非連続的な成長も戦略の柱に据えています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 COO候補</div>
+          <div class="job-preview">次世代経営人材として戦略策定と実行をリードし、全社横断での全体最適を実現する経営幹部ポジション</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>■募集背景</strong><br>今期より、組織体制を機能別から事業別ユニット制へ移行し、次世代経営人材の育成を推進しています。<br>しかしながら、各ユニット長には事業全体を統括する視点や経験が不足している状況であり、現在は代表自らが戦略策定・組織開発・実行までを担っているのが実情です。<br>こうした背景から、ビジネスサイドにおける戦略立案と実行をリードし、全社横断での全体最適を実現できる経営幹部（COO候補）の存在が強く求められています。</p><p><strong>事業ユニット構成：</strong></p><ul><li>不動産メディア事業ユニット（リビンマッチ等）</li><li>インキュベーション事業ユニット（ぬりマッチ等）</li><li>建築メディア事業ユニット（メタ住宅展示場）</li><li>不動産エージェント事業ユニット（リアル仲介、新規）</li></ul><p><strong>■想定される業務</strong><br>経営陣の一員として、経営目線を持ちながら事業横断での戦略策定と実行を担います。<br>セールスやマーケティングだけでなく、事業全体、場合によっては人事的な部分も含めた組織マネジメントを行い、全社の全体最適を図る役割を果たします。<br>次世代の組織開発を進め、優秀な若手が育つ組織体制を構築することも重要なミッションです。</p><p><strong>■応募資格</strong><br><span class='tag tag-must'>MUST</span> デジタルマーケティング経験必須</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">✅ 副業可（条件あり）</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.lvn.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+</main>
+<footer>
+  <p>本資料はmorichが北原潤 様のためにご用意した個人情報を含む機密資料です。無断転用・転載はご遠慮ください。</p>
+  <p style="margin-top:6px;">© 株式会社morich</p>
+</footer>
+<script>
+  function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+  function toggleJob(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
